@@ -1,0 +1,1 @@
+The original Figma Make export included components from [shadcn/ui](https://ui.shadcn.com/) under its [MIT license](https://github.com/shadcn-ui/ui/blob/main/LICENSE.md), and photos from [Unsplash](https://unsplash.com) under its [license](https://unsplash.com/license). Those generated components and remote photos are no longer included in this repository.

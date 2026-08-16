@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root { color-scheme: dark; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; background: #030303; }
+html { background: #030303; }
+body { min-width: 320px; background: #030303; }
+button:focus-visible, [tabindex="0"]:focus-visible { outline: 2px solid white; outline-offset: 4px; }
+
+@media (pointer: fine) {
+  .custom-cursor-active, .custom-cursor-active * { cursor: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
