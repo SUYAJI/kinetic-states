@@ -1,5 +1,6 @@
 import { motion, useSpring, useMotionValue } from "motion/react";
 import { useRef, useState } from "react";
+import { isWithinDistance } from "../interactionMath";
 
 export function MagneticZone() {
   const ref = useRef<HTMLButtonElement>(null);
@@ -25,7 +26,7 @@ export function MagneticZone() {
     const distanceY = e.clientY - centerY;
     const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
     
-    if (distance < 350) {
+    if (isWithinDistance(distance, 350)) {
       // Very strong pull
       x.set(distanceX * 0.85);
       y.set(distanceY * 0.85);

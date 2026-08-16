@@ -1,5 +1,6 @@
-import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 import { useEffect, useState } from "react";
+import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 import { InertiaZone } from "./components/InertiaZone";
 import { MagneticZone } from "./components/MagneticZone";
 import { DelayedHoverZone } from "./components/DelayedHoverZone";
@@ -12,7 +13,7 @@ import { TemporalHoverZone } from "./components/TemporalHoverZone";
 import { VelocityShiftZone } from "./components/VelocityShiftZone";
 
 export default function App() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
   const [hasFinePointer, setHasFinePointer] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);

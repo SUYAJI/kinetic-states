@@ -5,3 +5,9 @@ dist/
 !.env.example
 *.log
 .DS_Store
+coverage/
+playwright-report/
+test-results/
+.vscode/
+.idea/
+Thumbs.db
