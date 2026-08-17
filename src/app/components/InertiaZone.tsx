@@ -10,13 +10,12 @@ export function InertiaZone() {
       className="relative w-full aspect-square overflow-hidden border border-[#222] bg-[#0A0A0A] flex items-center justify-center group"
     >
       <div className="absolute top-0 left-0 p-6 flex flex-col pointer-events-none z-30">
-        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">01 — INERTIA</h3>
+        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">01: INERTIA</h3>
         <p className="text-[10px] font-mono text-white/40 max-w-[240px] uppercase leading-relaxed tracking-wider">
           Examines the feeling of pointer lag during approach.
         </p>
       </div>
       
-      {/* Target Element - Extreme transform */}
       <motion.div 
         className="w-64 h-64 overflow-hidden relative shadow-2xl"
         onHoverStart={() => setIsHoveringTarget(true)}

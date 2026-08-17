@@ -18,11 +18,9 @@ export default function App() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
-  // Real cursor dot - snappy follow
   const dotX = useSpring(cursorX, { stiffness: 1000, damping: 40, mass: 0.1 });
   const dotY = useSpring(cursorY, { stiffness: 1000, damping: 40, mass: 0.1 });
 
-  // Exaggerated lag cursor ring - Faster and smaller
   const ringX = useSpring(cursorX, { stiffness: 150, damping: 20, mass: 0.5 });
   const ringY = useSpring(cursorY, { stiffness: 150, damping: 20, mass: 0.5 });
 
@@ -55,12 +53,10 @@ export default function App() {
 
   return (
     <div className={`min-h-screen bg-[#030303] text-white p-6 md:p-12 font-sans flex flex-col items-center relative ${hasFinePointer ? "custom-cursor-active" : ""}`}>
-      {/* Global Cursor Dot */}
       {hasFinePointer && !reduceMotion && <motion.div 
         className="fixed top-0 left-0 w-[6px] h-[6px] bg-white rounded-full pointer-events-none z-[100] -ml-[3px] -mt-[3px] mix-blend-difference"
         style={{ x: dotX, y: dotY }}
       />}
-      {/* Exaggerated Lag Cursor Ring */}
       {hasFinePointer && !reduceMotion && <motion.div 
         className="fixed top-0 left-0 w-8 h-8 border border-white/50 rounded-full pointer-events-none z-[100] -ml-4 -mt-4 mix-blend-difference"
         style={{ x: ringX, y: ringY }}

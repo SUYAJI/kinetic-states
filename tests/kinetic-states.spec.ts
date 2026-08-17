@@ -1,8 +1,8 @@
 import { expect, test } from "@playwright/test";
 
 const studyTitles = [
-  "01 — INERTIA", "02 — MAGNETIC", "03 — DELAY", "04 — REPULSION", "05 — ELASTIC",
-  "06 — PARALLAX", "07 — Scroll Inertia", "08 — SELECTION GRAVITY", "09 — Temporal Hover", "10 — Velocity Shift",
+  "01: INERTIA", "02: MAGNETIC", "03: DELAY", "04: REPULSION", "05: ELASTIC",
+  "06: PARALLAX", "07: Scroll Inertia", "08: SELECTION GRAVITY", "09: Temporal Hover", "10: Velocity Shift",
 ];
 
 test("boots cleanly, renders all studies, and restores original remote imagery", async ({ page }) => {
@@ -31,7 +31,7 @@ test("supports document scrolling and lets Scroll Inertia yield page traversal",
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.mouse.wheel(0, 900);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
-  const scrollStudy = page.getByRole("heading", { name: "07 — Scroll Inertia" }).locator("..").locator("..");
+  const scrollStudy = page.getByRole("heading", { name: "07: Scroll Inertia" }).locator("..").locator("..");
   await scrollStudy.scrollIntoViewIfNeeded();
   await scrollStudy.locator('[aria-label="Scrollable inertia study items"]').evaluate((element) => { element.scrollTop = element.scrollHeight; });
   const before = await page.evaluate(() => window.scrollY);

@@ -10,7 +10,6 @@ export function ElasticZone() {
   const scaleX = useMotionValue(1);
   const scaleY = useMotionValue(1);
   
-  // Very loose, gooey spring
   const springX = useSpring(x, { stiffness: 40, damping: 4, mass: 1 });
   const springY = useSpring(y, { stiffness: 40, damping: 4, mass: 1 });
   const springScaleX = useSpring(scaleX, { stiffness: 60, damping: 6, mass: 1 });
@@ -28,15 +27,12 @@ export function ElasticZone() {
     const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
     
     if (distance < 300) {
-      // Pull heavily towards cursor
       x.set(distanceX * 0.7);
       y.set(distanceY * 0.7);
       
-      // Extreme squash and stretch
       scaleX.set(1 + Math.abs(distanceX) * 0.015);
       scaleY.set(Math.max(0.3, 1 - Math.abs(distanceY) * 0.005));
     } else {
-      // Snap violently back
       x.set(0);
       y.set(0);
       scaleX.set(1);
@@ -59,7 +55,7 @@ export function ElasticZone() {
       className="relative w-full aspect-square overflow-hidden border border-[#222] bg-[#0A0A0A] flex items-center justify-center group"
     >
       <div className="absolute top-0 left-0 p-6 flex flex-col pointer-events-none z-30">
-        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">05 — ELASTIC</h3>
+        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">05: ELASTIC</h3>
         <p className="text-[10px] font-mono text-white/40 max-w-[240px] uppercase leading-relaxed tracking-wider">
           Studies tension feedback before commitment.
         </p>

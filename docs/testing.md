@@ -1,7 +1,7 @@
 # Testing
 
-`npm run test:unit` runs a small Vitest suite for deterministic interaction math used by the magnetic field.
+`npm run test:unit` covers the magnetic field's deterministic interaction math.
 
-`npm run test:e2e` runs representative Chromium checks for application boot, study titles, document scrolling, Scroll Inertia page traversal, keyboard focus, touch sizing, restored remote imagery with a failure fallback, reduced motion, and two observable interaction states.
+`npm run test:e2e` checks boot, study titles, document scrolling, Scroll Inertia page traversal, keyboard focus, touch sizing, remote-image fallback, reduced motion, and two observable interaction states in Chromium.
 
 Motion-heavy studies are not pixel-tested. Their physical character is reviewed manually because spring timing and pointer trajectories are intentionally expressive rather than deterministic.

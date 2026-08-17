@@ -28,7 +28,7 @@ export function SelectionGravityZone() {
       className="relative w-full aspect-square overflow-hidden border border-[#222] bg-[#0A0A0A] flex items-center justify-center group"
     >
       <div className="absolute top-0 left-0 p-6 flex flex-col pointer-events-none z-30">
-        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">08 — SELECTION GRAVITY</h3>
+        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">08: SELECTION GRAVITY</h3>
         <p className="text-[10px] font-mono text-white/40 max-w-[240px] uppercase leading-relaxed tracking-wider">
           Cursor proximity warps surrounding elements to increase target density.
         </p>
@@ -70,7 +70,6 @@ function GravityNode({ index, cursorX, cursorY }: { index: number; cursorX: Moti
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < 150) {
-        // Bend towards cursor
         const pullFactor = (150 - dist) / 150;
         targetScale.set(1 + pullFactor * 0.5);
         targetX.set(dx * pullFactor * 0.3);

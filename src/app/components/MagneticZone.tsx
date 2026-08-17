@@ -10,7 +10,6 @@ export function MagneticZone() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
-  // Extreme bounciness
   const springX = useSpring(x, { stiffness: 200, damping: 10, mass: 0.5 });
   const springY = useSpring(y, { stiffness: 200, damping: 10, mass: 0.5 });
 
@@ -28,7 +27,6 @@ export function MagneticZone() {
     const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
     
     if (isWithinDistance(distance, 350)) {
-      // Very strong pull
       x.set(distanceX * 0.85);
       y.set(distanceY * 0.85);
       setIsAttracted(true);
@@ -53,13 +51,12 @@ export function MagneticZone() {
       className="relative w-full aspect-square overflow-hidden border border-[#222] bg-[#0A0A0A] flex items-center justify-center group"
     >
       <div className="absolute top-0 left-0 p-6 flex flex-col pointer-events-none z-30">
-        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">02 — MAGNETIC</h3>
+        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">02: MAGNETIC</h3>
         <p className="text-[10px] font-mono text-white/40 max-w-[240px] uppercase leading-relaxed tracking-wider">
           Explores proximity pull in dense layouts.
         </p>
       </div>
 
-      {/* Field Indicator */}
       <motion.div 
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-white/5 bg-white/[0.02] pointer-events-none" 
         animate={{ scale: isAttracted ? 1.1 : 0.9, opacity: isAttracted ? 1 : 0 }}

@@ -8,20 +8,20 @@ Deployment pending.
 
 ## Studies
 
-- **Inertia** — pointer lag and approach.
-- **Magnetic** — proximity attraction.
-- **Delay** — sustained-presence activation.
-- **Repulsion** — negative force around an element.
-- **Elastic** — tension, stretch, and return.
-- **Parallax** — layered depth response.
-- **Scroll Inertia** — native momentum in a compact field.
-- **Selection Gravity** — proximity-driven field distortion.
-- **Temporal Hover** — dwell-based activation.
-- **Velocity Shift** — movement velocity as directional bias.
+- **Inertia:** pointer lag and approach.
+- **Magnetic:** proximity attraction.
+- **Delay:** sustained-presence activation.
+- **Repulsion:** negative force around an element.
+- **Elastic:** tension, stretch, and return.
+- **Parallax:** layered depth response.
+- **Scroll Inertia:** native momentum in a compact field.
+- **Selection Gravity:** proximity-driven field distortion.
+- **Temporal Hover:** dwell-based activation.
+- **Velocity Shift:** movement velocity as directional bias.
 
 ## Interaction context
 
-Several studies intentionally investigate fine-pointer dynamics. The public implementation keeps touch navigation normal, preserves useful keyboard focus, and reduces involuntary motion where a reduced-motion preference is expressed.
+Several studies investigate fine-pointer dynamics. Touch navigation remains normal, controls retain keyboard focus, and reduced-motion settings limit involuntary movement.
 
 ## Stack
 
@@ -44,7 +44,7 @@ npm run test:e2e
 
 ## Provenance
 
-Kinetic States began as a Figma Make prototype. The export was audited, unreachable generated UI scaffold and dependencies were removed, and the ten interaction studies were preserved while their input handling, lifecycle behavior, responsiveness, reduced-motion behavior, and accessibility were hardened for a public implementation.
+Kinetic States began as a Figma Make prototype. The public version keeps the ten studies while removing unused exported UI code and tightening input, motion, and layout behavior.
 
 ## Attribution
 

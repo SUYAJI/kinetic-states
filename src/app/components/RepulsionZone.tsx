@@ -8,7 +8,6 @@ export function RepulsionZone() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   
-  // High stiffness for aggressive snapping away
   const springX = useSpring(x, { stiffness: 400, damping: 15, mass: 0.8 });
   const springY = useSpring(y, { stiffness: 400, damping: 15, mass: 0.8 });
 
@@ -16,11 +15,9 @@ export function RepulsionZone() {
     if (!containerRef.current) return;
     
     const rect = containerRef.current.getBoundingClientRect();
-    // Center of the container, assume the object wants to return to center
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     
-    // Position of the object relative to viewport
     const objectX = centerX + springX.get();
     const objectY = centerY + springY.get();
     
@@ -28,13 +25,10 @@ export function RepulsionZone() {
     const distanceY = e.clientY - objectY;
     const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
     
-    // If pointer gets too close, repel strongly
     if (distance < 200) {
-      // Repel in opposite direction
       x.set(x.get() - distanceX * 1.5);
       y.set(y.get() - distanceY * 1.5);
     } else {
-      // Slowly drift back to center
       x.set(0);
       y.set(0);
     }
@@ -53,7 +47,7 @@ export function RepulsionZone() {
       className="relative w-full aspect-square overflow-hidden border border-[#222] bg-[#0A0A0A] flex items-center justify-center group"
     >
       <div className="absolute top-0 left-0 p-6 flex flex-col pointer-events-none z-30">
-        <h3 className="text-[11px] font-mono text-[#FF3333] uppercase tracking-[0.2em] mb-3">04 — REPULSION</h3>
+        <h3 className="text-[11px] font-mono text-[#FF3333] uppercase tracking-[0.2em] mb-3">04: REPULSION</h3>
         <p className="text-[10px] font-mono text-white/40 max-w-[240px] uppercase leading-relaxed tracking-wider">
           Tests negative force around critical actions.
         </p>
@@ -62,7 +56,7 @@ export function RepulsionZone() {
       <motion.div
         style={{ x: springX, y: springY }}
         className="w-24 h-24 flex items-center justify-center relative z-20 overflow-hidden font-mono text-[10px] tracking-[0.3em] uppercase transition-colors"
-        whileHover={{ scale: 0.8 }} // Extra squeeze if somehow caught
+        whileHover={{ scale: 0.8 }}
       >
         <img 
           src={kineticImage(1080)} alt=""

@@ -9,13 +9,12 @@ export function DelayedHoverZone() {
   return (
     <div className="relative w-full aspect-square overflow-hidden border border-[#222] bg-[#0A0A0A] flex items-center justify-center group">
       <div className="absolute top-0 left-0 p-6 flex flex-col pointer-events-none z-30">
-        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">03 — DELAY</h3>
+        <h3 className="text-[11px] font-mono text-white/90 uppercase tracking-[0.2em] mb-3">03: DELAY</h3>
         <p className="text-[10px] font-mono text-white/40 max-w-[240px] uppercase leading-relaxed tracking-wider">
           Sustained presence filters accidental hover activation.
         </p>
       </div>
 
-      {/* Explosive Background when activated */}
       <motion.div 
         className="absolute inset-0 z-0 pointer-events-none"
         initial={{ opacity: 0 }}
@@ -44,7 +43,6 @@ export function DelayedHoverZone() {
         }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* Fill Layer */}
         <motion.div
           className="absolute inset-0 bg-white text-black flex flex-col items-center justify-center z-10"
           initial={{ y: "100%" }}
@@ -58,7 +56,6 @@ export function DelayedHoverZone() {
           }}
         />
 
-        {/* Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center mix-blend-difference text-white z-20">
           <motion.div 
             animate={{ rotate: isHovered ? 360 : 0 }}
