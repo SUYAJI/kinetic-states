@@ -43,6 +43,16 @@ export default function App() {
     };
   }, [cursorX, cursorY]);
 
+  useEffect(() => {
+    const handleImageError = (event: Event) => {
+      if (!(event.target instanceof HTMLImageElement) || event.target.dataset.fallbackApplied) return;
+      event.target.dataset.fallbackApplied = "true";
+      event.target.src = "/kinetic-field.svg";
+    };
+    document.addEventListener("error", handleImageError, true);
+    return () => document.removeEventListener("error", handleImageError, true);
+  }, []);
+
   return (
     <div className={`min-h-screen bg-[#030303] text-white p-6 md:p-12 font-sans flex flex-col items-center relative ${hasFinePointer ? "custom-cursor-active" : ""}`}>
       {/* Global Cursor Dot */}

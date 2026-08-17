@@ -1,6 +1,7 @@
 import { motion, useSpring, useMotionValue } from "motion/react";
 import { useRef, useState } from "react";
 import { isWithinDistance } from "../interactionMath";
+import { kineticImage } from "../imagery";
 
 export function MagneticZone() {
   const ref = useRef<HTMLButtonElement>(null);
@@ -76,7 +77,7 @@ export function MagneticZone() {
         transition={{ type: "spring", bounce: 0.5 }}
       >
         <img 
-          src="/kinetic-field.svg" alt=""
+          src={kineticImage(1080)} alt=""
           className="absolute inset-0 w-full h-full object-cover hue-rotate-90 saturate-150 transition-opacity duration-500 z-0"
           style={{ opacity: isAttracted ? 1 : 0.2 }}
         />

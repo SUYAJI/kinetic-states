@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
+import { kineticImage } from "../imagery";
 
 export function DelayedHoverZone() {
   const [isHovered, setIsHovered] = useState(false);
@@ -22,7 +23,7 @@ export function DelayedHoverZone() {
         transition={{ duration: 0.4 }}
       >
         <img 
-          src="/kinetic-field.svg" alt=""
+          src={kineticImage(1080)} alt=""
           className="w-full h-full object-cover hue-rotate-180 scale-110 saturate-200"
         />
         <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />

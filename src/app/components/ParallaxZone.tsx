@@ -1,5 +1,6 @@
 import { motion, useSpring, useMotionValue, useTransform } from "motion/react";
 import { useRef } from "react";
+import { kineticImage } from "../imagery";
 
 export function ParallaxZone() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,7 +64,7 @@ export function ParallaxZone() {
         style={{ x: bgX, y: bgY, rotateX, rotateY }}
       >
         <img 
-          src="/kinetic-field.svg" alt=""
+          src={kineticImage(1080)} alt=""
           className="w-full h-full object-cover hue-rotate-180"
         />
       </motion.div>

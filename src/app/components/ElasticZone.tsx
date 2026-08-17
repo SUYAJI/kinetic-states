@@ -1,5 +1,6 @@
 import { motion, useSpring, useMotionValue } from "motion/react";
 import { useRef } from "react";
+import { kineticImage } from "../imagery";
 
 export function ElasticZone() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,7 +75,7 @@ export function ElasticZone() {
         className="w-32 h-32 flex items-center justify-center relative z-20 overflow-hidden font-mono text-[10px] tracking-[0.3em] uppercase transition-colors"
       >
         <img 
-          src="/kinetic-field.svg" alt=""
+          src={kineticImage(1080)} alt=""
           className="absolute inset-0 w-full h-full object-cover hue-rotate-[240deg] rounded-[64px]"
         />
         <div className="absolute inset-0 rounded-[64px] shadow-[inset_0_0_30px_rgba(0,0,0,0.8)] z-10" />

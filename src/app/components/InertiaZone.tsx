@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useState } from "react";
+import { kineticImage } from "../imagery";
 
 export function InertiaZone() {
   const [isHoveringTarget, setIsHoveringTarget] = useState(false);
@@ -28,7 +29,7 @@ export function InertiaZone() {
         transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
       >
         <img 
-          src="/kinetic-field.svg" alt=""
+          src={kineticImage(1080)} alt=""
           className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-150"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none opacity-80 group-hover:opacity-0 transition-opacity" />

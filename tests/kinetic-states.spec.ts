@@ -5,14 +5,25 @@ const studyTitles = [
   "06 — PARALLAX", "07 — Scroll Inertia", "08 — SELECTION GRAVITY", "09 — Temporal Hover", "10 — Velocity Shift",
 ];
 
-test("boots cleanly, renders all studies, and uses bundled imagery", async ({ page }) => {
+test("boots cleanly, renders all studies, and restores original remote imagery", async ({ page }) => {
   const consoleMessages: string[] = [];
   page.on("console", (message) => { if (["error", "warning"].includes(message.type())) consoleMessages.push(message.text()); });
   await page.goto("/");
   for (const title of studyTitles) await expect(page.getByRole("heading", { name: title })).toBeVisible();
   await expect(page.locator("img")).toHaveCount(32);
-  expect(await page.locator("img").evaluateAll((images) => images.every((image) => !image.src.includes("unsplash")))).toBe(true);
+  const imageSources = await page.locator("img").evaluateAll((images) => images.map((image) => image.src));
+  expect(imageSources.every((source) => source.startsWith("https://images.unsplash.com/photo-1636220409261-794e0464ca2b"))).toBe(true);
+  expect(imageSources.some((source) => source.includes("w=1080"))).toBe(true);
+  expect(imageSources.some((source) => source.includes("w=400"))).toBe(true);
+  expect(imageSources.some((source) => source.includes("w=200"))).toBe(true);
   expect(consoleMessages).toEqual([]);
+});
+
+test("falls back without collapsing the layout when remote imagery fails", async ({ page }) => {
+  await page.route("https://images.unsplash.com/**", (route) => route.abort());
+  await page.goto("/");
+  await expect.poll(() => page.locator("img[data-fallback-applied]").count()).toBe(32);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
 test("supports document scrolling and lets Scroll Inertia yield page traversal", async ({ page }) => {

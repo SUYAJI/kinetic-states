@@ -1,5 +1,6 @@
 import { motion, useSpring, useMotionValue } from "motion/react";
 import { useRef } from "react";
+import { kineticImage } from "../imagery";
 
 export function RepulsionZone() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,7 +65,7 @@ export function RepulsionZone() {
         whileHover={{ scale: 0.8 }} // Extra squeeze if somehow caught
       >
         <img 
-          src="/kinetic-field.svg" alt=""
+          src={kineticImage(1080)} alt=""
           className="absolute inset-0 w-full h-full object-cover hue-rotate-[-30deg] contrast-150 saturate-200 rounded-full"
         />
         <div className="absolute inset-0 rounded-full border-2 border-[#FF3333] z-10" />

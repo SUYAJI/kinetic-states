@@ -1,5 +1,6 @@
 import { motion, useSpring, useMotionValue, type MotionValue } from "motion/react";
 import { useEffect, useRef } from "react";
+import { kineticImage } from "../imagery";
 
 export function SelectionGravityZone() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -90,7 +91,7 @@ function GravityNode({ index, cursorX, cursorY }: { index: number; cursorX: Moti
       whileHover={{ scale: 1.8 }}
     >
       <img 
-        src="/kinetic-field.svg" alt=""
+        src={kineticImage(200)} alt=""
         className="w-full h-full object-cover saturate-[3] hue-rotate-[90deg] opacity-40 mix-blend-screen"
         style={{ filter: `hue-rotate(${index * 20}deg) saturate(2)` }}
       />

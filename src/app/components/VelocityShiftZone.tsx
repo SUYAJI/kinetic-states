@@ -1,8 +1,9 @@
 import { motion, useMotionValue, useSpring, useTransform, useVelocity, type MotionValue } from "motion/react";
+import { kineticImage } from "../imagery";
 
 function VelocityRow({ index, skewX }: { index: number; skewX: MotionValue<number> }) {
   const backgroundSkew = useTransform(skewX, [-15, 15], [30, -30]);
-  return <motion.div className="w-full h-16 bg-white/[0.05] border border-white/10 overflow-hidden relative flex items-center justify-between px-8" style={{ skewX }}><motion.div className="absolute inset-0 w-[150%] -left-[25%] opacity-40 mix-blend-screen bg-black" style={{ skewX: backgroundSkew }}><img src="/kinetic-field.svg" alt="" className="w-full h-full object-cover hue-rotate-[220deg] saturate-150 grayscale group-hover:grayscale-0 transition-all duration-700" /></motion.div><span className="font-mono text-xs tracking-[0.4em] font-bold text-white relative z-10 drop-shadow-md">DATA STREAM 0{index}</span><span className="w-4 h-4 bg-white rounded-sm relative z-10" aria-hidden="true" /></motion.div>;
+  return <motion.div className="w-full h-16 bg-white/[0.05] border border-white/10 overflow-hidden relative flex items-center justify-between px-8" style={{ skewX }}><motion.div className="absolute inset-0 w-[150%] -left-[25%] opacity-40 mix-blend-screen bg-black" style={{ skewX: backgroundSkew }}><img src={kineticImage(1080)} alt="" className="w-full h-full object-cover hue-rotate-[220deg] saturate-150 grayscale group-hover:grayscale-0 transition-all duration-700" /></motion.div><span className="font-mono text-xs tracking-[0.4em] font-bold text-white relative z-10 drop-shadow-md">DATA STREAM 0{index}</span><span className="w-4 h-4 bg-white rounded-sm relative z-10" aria-hidden="true" /></motion.div>;
 }
 
 export function VelocityShiftZone() {
