@@ -4,7 +4,7 @@ Kinetic States is a collection of ten browser-based interaction studies explorin
 
 ## Live demo
 
-Deployment pending.
+[Explore the ten interaction studies](https://kinetic-states.vercel.app/).
 
 ## Studies
 
